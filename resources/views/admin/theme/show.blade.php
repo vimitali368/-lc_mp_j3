@@ -7,11 +7,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-2">{{ $photo->path }}</h1>
-                        <a href="{{ route('admin.photo.edit', $photo->id) }}" class="text-success">
+                        <h1 class="m-0 mr-2">{{ $theme->title }}</h1>
+                        <a href="{{ route('admin.theme.edit', $theme->id) }}" class="text-success">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
-                        <form action="{{ route('admin.photo.delete', $photo->id) }}"
+                        <form action="{{ route('admin.theme.delete', $theme->id) }}"
                               method="POST">
                             @csrf
                             @method('DELETE')
@@ -23,7 +23,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Админка</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.photo.index') }}">Фото</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.theme.index') }}">Темы</a></li>
                             <li class="breadcrumb-item active">Карточка</li>
                         </ol>
                     </div><!-- /.col -->
@@ -43,27 +43,15 @@
                                 <tbody>
                                 <tr>
                                     <td>ID</td>
-                                    <td>{{ $photo->id }}</td>
+                                    <td>{{ $theme->id }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Путь к фото</td>
-                                    <td>{{ $photo->path }}</td>
+                                    <td>Заголовок</td>
+                                    <td>{{ $theme->title }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Url фото</td>
-                                    <td>{{ $photo->url }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Размер фото</td>
-                                    <td>{{ $photo->size }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Описание фото</td>
-                                    <td>{{ $photo->description }}</td>
-                                </tr>
-                                <tr>
-                                    <td>ID темы</td>
-                                    <td>{{ $photo->theme_id }}</td>
+                                    <td>Описание</td>
+                                    <td>{{ $theme->description }}</td>
                                 </tr>
                                 </tbody>
                             </table>

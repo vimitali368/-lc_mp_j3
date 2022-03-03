@@ -32,6 +32,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::delete('/{client}', 'DeleteController')->name('admin.client.delete');
     });
 
+    Route::group(['namespace' => 'Theme', 'prefix' => 'themes'], function () {
+        Route::get('/', 'IndexController')->name('admin.theme.index');
+        Route::get('/create', 'CreateController')->name('admin.theme.create');
+        Route::post('/store', 'StoreController')->name('admin.theme.store');
+        Route::get('/{theme}', 'ShowController')->name('admin.theme.show');
+        Route::get('/{theme}/edit', 'EditController')->name('admin.theme.edit');
+        Route::patch('/{theme}', 'UpdateController')->name('admin.theme.update');
+        Route::delete('/{theme}', 'DeleteController')->name('admin.theme.delete');
+    });
+
     Route::group(['namespace' => 'Photo', 'prefix' => 'photos'], function () {
         Route::get('/', 'IndexController')->name('admin.photo.index');
         Route::get('/create', 'CreateController')->name('admin.photo.create');
@@ -41,4 +51,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::patch('/{photo}', 'UpdateController')->name('admin.photo.update');
         Route::delete('/{photo}', 'DeleteController')->name('admin.photo.delete');
     });
+
 });

@@ -33,6 +33,16 @@
                             Клиенты
                         </p>
                     </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.theme.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-palette"></i>
+                        <p>
+                            Темы
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.photo.index') }}" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
