@@ -25,7 +25,28 @@
                     </div>
                 </div>
             </section>
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 class="widget-title">Случайные фото</h5>
+                    <section>
+                        <div class="row blog-post-row">
+                            @foreach($randomPhotos as $photo)
+                                <div class="col-md-6 blog-post" data-aos="fade-up">
+                                    <div class="blog-post-thumbnail-wrapper">
+                                        <img src="{{ $photo->path }}" alt="blog post">
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="blog-post-category">{{ $photo->theme->title }}</p>
+                                    </div>
+                                    <a href="{{ route('theme.show', $photo->theme->id) }}" class="blog-post-permalink">
+                                        <h6 class="blog-post-title">{{ $photo->description }}</h6>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
-
     </main>
 @endsection

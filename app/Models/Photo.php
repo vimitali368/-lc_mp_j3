@@ -14,4 +14,8 @@ class Photo extends Model
     protected $table = 'photos';
     protected $guarded = false;
 
+    public function theme()
+    {
+        return $this->belongsTo(Theme::class, 'theme_id', 'id');
+    }
 }

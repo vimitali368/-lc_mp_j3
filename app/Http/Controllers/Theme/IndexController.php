@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Theme;
 
 use App\Http\Controllers\Controller;
+use App\Models\Photo;
 use App\Models\Theme;
 
 class IndexController extends Controller
@@ -10,8 +11,8 @@ class IndexController extends Controller
     public function __invoke()
     {
         $themes = Theme::paginate(6);
-//        $posts = $category->posts()->rndom(1);
-        return view('theme.index', compact('themes'));
+        $randomPhotos = Photo::get()->random(8);
+        return view('theme.index', compact('themes', 'randomPhotos'));
     }
 
 }
