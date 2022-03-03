@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-2">{{ $client->name }}</h1>
+                        <h1 class="m-0 mr-2">{{ $client->fio }}</h1>
                         <a href="{{ route('admin.client.edit', $client->id) }}" class="text-success">
                             <i class="fas fa-pencil-alt"></i>
                         </a>

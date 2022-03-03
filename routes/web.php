@@ -13,7 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['namespace' => 'Main'], function () {
+    Route::get('/', 'IndexController')->name('main.index');
+});
+
+Route::group(['namespace' => 'Theme', 'prefix' => 'themes'], function () {
+    Route::get('/', 'IndexController')->name('theme.index');
+
+    Route::group(['prefix' => '{theme}'], function () {
+        Route::get('/', 'ShowController')->name('theme.show');
+    });
+});
 
 Auth::routes();
 
