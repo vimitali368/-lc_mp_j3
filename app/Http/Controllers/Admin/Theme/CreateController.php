@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin\Theme;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 
 class CreateController extends Controller
 {
     public function __invoke()
     {
-        return view('admin.theme.create');
+        $clients = Client::all();
+        return view('admin.theme.create', compact('clients'));
     }
 }

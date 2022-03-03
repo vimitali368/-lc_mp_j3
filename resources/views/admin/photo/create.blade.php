@@ -28,7 +28,7 @@
                     @csrf
                     <div class="form-group">
                         <input type="text" class="form-control" name="path" placeholder="Путь к фото">
-                        @error('fio')
+                        @error('path')
                         <div class="text-danger">
                             Это поле необходимо для заполнения
                         </div>
@@ -36,9 +36,19 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="url" placeholder="Url фото">
+                        @error('url')
+                        <div class="text-danger">
+                            Это поле необходимо для заполнения
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="size" placeholder="Размер фото">
+                        @error('size')
+                        <div class="text-danger">
+                            Это поле необходимо для заполнения
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="description" placeholder="Описание фото">
@@ -52,6 +62,11 @@
                                 >{{ $theme->title }}</option>
                             @endforeach
                         </select>
+                        @error('theme_id')
+                        <div class="text-danger">
+                            Это поле необходимо для заполнения
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Добавить">

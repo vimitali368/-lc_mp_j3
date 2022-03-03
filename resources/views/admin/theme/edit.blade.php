@@ -30,7 +30,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="title" placeholder="Заголовок"
                                value="{{ $theme->title }}">
-                        @error('fio')
+                        @error('title')
                         <div class="text-danger">
                             Это поле необходимо для заполнения
                         </div>
@@ -39,6 +39,20 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="description" placeholder="Описание"
                                value="{{ $theme->description }}">
+                    </div>
+{{--                    @dd($theme->client_id)--}}
+                    <div class="form-group">
+                        <label>Выберите клиентв</label>
+                        <select class="form-control" name="client_id">
+                            @foreach($clients as $client)
+                                <option value="{{ $client->id }}"
+                                    {{ $client->id == $theme->client_id ? ' selected' : '' }}
+                                >{{ $client->fio }}</option>
+                            @endforeach
+                        </select>
+                        @error('client_id')
+                        <div class=" text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Обновить">

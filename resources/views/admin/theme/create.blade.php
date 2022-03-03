@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление клиента</h1>
+                        <h1 class="m-0">Добавление темы</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Админка</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('admin.client.index') }}">Клиенты</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.theme.index') }}">Темы</a></li>
                             <li class="breadcrumb-item active">Добавление</li>
                         </ol>
                     </div><!-- /.col -->
@@ -24,24 +24,33 @@
         <!-- Main content -->
         <section class="content">
             <div class="row ml-3">
-                <form action="{{ route('admin.client.store') }}" method="POST" class="w-25">
+                <form action="{{ route('admin.theme.store') }}" method="POST" class="w-25">
                     @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" name="fio" placeholder="Фамилия Имя Отчество">
-                        @error('fio')
+                        <input type="text" class="form-control" name="title" placeholder="Заголовок">
+                        @error('title')
                         <div class="text-danger">
                             Это поле необходимо для заполнения
                         </div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="phone_number" placeholder="Номер телефона">
+                        <input type="text" class="form-control" name="description" placeholder="Описание">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="location" placeholder="Локация">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="email" placeholder="Почта">
+                        <label>Выбирите клиента</label>
+                        <select name="client_id" class="form-control">
+                            @foreach($clients as $client)
+                                <option value="{{ $client->id }}"
+                                    {{ $client->id == old('client_id') ? ' selected' : '' }}
+                                >{{ $client->fio }}</option>
+                            @endforeach
+                        </select>
+                        @error('client_id')
+                        <div class="text-danger">
+                            Это поле необходимо для заполнения
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Добавить">

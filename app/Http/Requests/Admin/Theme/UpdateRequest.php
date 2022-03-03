@@ -25,7 +25,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'description' => 'nullable|string'
+            'description' => 'nullable|string',
+            'client_id' => 'required|numeric|exists:clients,id'
         ];
     }
 }
