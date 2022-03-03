@@ -17,7 +17,7 @@ class CreatePhotosTable extends Migration
             $table->id();
             $table->string('path');
             $table->string('url');
-            $table->decimal('size');
+            $table->decimal('size', 18, 2);
             $table->text('description')->nullable();
             $table->unsignedBigInteger('theme_id');
 

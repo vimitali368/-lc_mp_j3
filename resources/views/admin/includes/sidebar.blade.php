@@ -33,6 +33,12 @@
                             Клиенты
                         </p>
                     </a>
+                    <a href="{{ route('admin.photo.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-image"></i>
+                        <p>
+                            Фото
+                        </p>
+                    </a>
                 </li>
             </ul>
         </nav>

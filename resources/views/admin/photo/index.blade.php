@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Клиенты</h1>
+                        <h1 class="m-0">Фото</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Админка</a></li>
-                            <li class="breadcrumb-item active">Клиенты / Список</li>
+                            <li class="breadcrumb-item active">Фото / Список</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -24,7 +24,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-2 mb-3">
-                    <a href="{{ route('admin.client.create') }}" type="button"
+                    <a href="{{ route('admin.photo.create') }}" type="button"
                        class="btn btn-block btn-primary">Добавить</a>
                 </div>
             </div>
@@ -37,29 +37,31 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>ФИО</th>
-                                    <th>Номер телефона</th>
-                                    <th>Локация</th>
-                                    <th>Почта</th>
+                                    <th>Путь к фото</th>
+                                    <th>Url фото</th>
+                                    <th>Размер фото</th>
+                                    <th>Описание фото</th>
+                                    <th>ID темы</th>
                                     <th colspan="3" class="text-center">Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($clients as $client)
+                                @foreach($photos as $photo)
                                     <tr>
-                                        <td>{{ $client->id }}</td>
-                                        <td>{{ $client->fio }}</td>
-                                        <td>{{ $client->phone_number }}</td>
-                                        <td>{{ $client->location }}</td>
-                                        <td>{{ $client->email }}</td>
+                                        <td>{{ $photo->id }}</td>
+                                        <td>{{ $photo->path }}</td>
+                                        <td>{{ $photo->url }}</td>
+                                        <td>{{ $photo->size }}</td>
+                                        <td>{{ $photo->description }}</td>
+                                        <td>{{ $photo->theme_id }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.client.show', $client->id) }}"><i
+                                            <a href="{{ route('admin.photo.show', $photo->id) }}"><i
                                                     class="far fa-eye"></i></a></td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.client.edit', $client->id) }}"
+                                            <a href="{{ route('admin.photo.edit', $photo->id) }}"
                                                class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                         <td>
-                                            <form action="{{ route('admin.client.delete', $client->id) }}"
+                                            <form action="{{ route('admin.photo.delete', $photo->id) }}"
                                                   method="POST">
                                                 @csrf
                                                 @method('DELETE')

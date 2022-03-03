@@ -31,4 +31,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::patch('/{client}', 'UpdateController')->name('admin.client.update');
         Route::delete('/{client}', 'DeleteController')->name('admin.client.delete');
     });
+
+    Route::group(['namespace' => 'Photo', 'prefix' => 'photos'], function () {
+        Route::get('/', 'IndexController')->name('admin.photo.index');
+        Route::get('/create', 'CreateController')->name('admin.photo.create');
+        Route::post('/store', 'StoreController')->name('admin.photo.store');
+        Route::get('/{photo}', 'ShowController')->name('admin.photo.show');
+        Route::get('/{photo}/edit', 'EditController')->name('admin.photo.edit');
+        Route::patch('/{photo}', 'UpdateController')->name('admin.photo.update');
+        Route::delete('/{photo}', 'DeleteController')->name('admin.photo.delete');
+    });
 });
