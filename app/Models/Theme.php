@@ -10,6 +10,6 @@ class Theme extends Model
     use HasFactory;
 
     protected $table = 'themes';
-    protected $guarded = 'false';
+    protected $guarded = false;
 
 }

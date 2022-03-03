@@ -10,6 +10,6 @@ class Photo extends Model
     use HasFactory;
 
     protected $table = 'photos';
-    protected $guarded = 'false';
+    protected $guarded = false;
 
 }

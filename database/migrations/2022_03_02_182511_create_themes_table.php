@@ -21,6 +21,9 @@ class CreateThemesTable extends Migration
 
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('client_id', 'theme_client_idx');
+            $table->foreign('client_id', 'theme_client_fk')->on('clients')->references('id');
         });
     }
 

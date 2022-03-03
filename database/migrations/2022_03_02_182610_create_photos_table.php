@@ -23,6 +23,9 @@ class CreatePhotosTable extends Migration
 
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('theme_id', 'photo_theme_idx');
+            $table->foreign('theme_id', 'photo_theme_fk')->on('themes')->references('id');
         });
     }
 
