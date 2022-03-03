@@ -113,9 +113,7 @@
                 <a href="{{ asset('#!') }}">Terms</a>
                 <a href="{{ asset('#!') }}">Site Map</a>
             </nav>
-            <p class="mb-0">© Edica. 2020 <a href="{{ asset('https://www.bootstrapdash.com') }}" target="_blank"
-                                             rel="noopener noreferrer" class="text-reset">bootstrapdash</a> . All rights
-                reserved.</p>
+            <p class="mb-0">© Сайт портфолио </p>
         </div>
     </div>
 </footer>

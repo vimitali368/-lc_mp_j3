@@ -14,4 +14,17 @@ class Theme extends Model
     protected $table = 'themes';
     protected $guarded = false;
 
+//    protected $with = ['randomPath'];
+
+    public function photos(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Photo::class, 'theme_id', 'id');
+    }
+
+    public function randomPath()
+    {
+//        dd($this->photos()->inRandomOrder()->first()->only('path'));
+        return $this->photos()->inRandomOrder()->first()->only('path');
+    }
+
 }

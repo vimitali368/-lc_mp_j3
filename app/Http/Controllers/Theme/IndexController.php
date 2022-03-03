@@ -10,6 +10,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $themes = Theme::paginate(6);
+//        $posts = $category->posts()->rndom(1);
         return view('theme.index', compact('themes'));
     }
 

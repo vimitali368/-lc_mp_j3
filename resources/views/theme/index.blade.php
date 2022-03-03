@@ -9,7 +9,7 @@
                     @foreach($themes as $theme)
                         <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
                             <div class="blog-post-thumbnail-wrapper">
-                                <img src="{{ 'storage/' . $theme->preview_image }}" alt="blog post">
+                                <img src="{{ $theme->randomPath()['path'] }}" alt="blog post">
                             </div>
                             <p class="blog-post-category"></p>
 {{--                            <p class="blog-post-category">{{ $theme->category->title }}</p>--}}
