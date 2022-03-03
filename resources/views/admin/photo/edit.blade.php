@@ -20,7 +20,6 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-{{--        @dd($photo->id);--}}
         <!-- Main content -->
         <section class="content">
             <div class="row ml-3">
@@ -59,18 +58,16 @@
                                value="{{ $photo->description }}">
                     </div>
                     <div class="form-group">
-                        <label>Выбирите тему</label>
-                        <select name="theme_id" class="form-control" value="{{ $photo->theme_id }}">
+                        <label>Выберите тему</label>
+                        <select class="form-control" name="theme_id">
                             @foreach($themes as $theme)
                                 <option value="{{ $theme->id }}"
-                                    {{ $theme->id == old('theme_id') ? ' selected' : '' }}
+                                    {{ $theme->id == $photo->theme_id ? ' selected' : '' }}
                                 >{{ $theme->title }}</option>
                             @endforeach
                         </select>
                         @error('theme_id')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
