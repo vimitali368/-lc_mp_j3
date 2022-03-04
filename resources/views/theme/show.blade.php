@@ -25,14 +25,22 @@
                                 @foreach($photos as $photo)
                                 <div class="col-md-4 landing-blog-post aos-init aos-animate" data-aos="fade-right">
                                     <img src="{{ asset($photo->path) }}" alt="blog post" class="blog-post-thumbnail">
-                                    <p class="blog-post-category">Blog post</p>
+                                    <p class="blog-post-category">Ссылка: {{ $photo->url }}</p>
+                                    <p class="blog-post-category">Размер: {{ $photo->size }}</p>
                                     <h4 class="blog-post-title">{{ $photo->description }}</h4>
                                 </div>
                                 @endforeach
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="mx-auto" style="margin-bottom: 50px;">
+                                {{ $photos->links() }}
+                            </div>
+                        </div>
                     </section>
                 </div>
+            </div>
+            <div class="row" class="pb-5">
             </div>
         </div>
     </main>
