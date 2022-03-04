@@ -25,7 +25,13 @@
             <div class="collapse navbar-collapse" id="edicaMainNav">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('main.index') }}">Тематические фотосессии</a>
+                        <a class="nav-link" href="{{ route('theme.index') }}">Тематические фотосессии</a>
+                    </li>
+{{--                    <li class="nav-item ">--}}
+{{--                        <a class="nav-link" href="{{ route('photos.index') }}">Фотографии</a>--}}
+{{--                    </li>--}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('main.demand') }}">Оставить заявку</a>
                     </li>
                 </ul>
             </div>
