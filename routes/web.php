@@ -25,6 +25,20 @@ Route::group(['namespace' => 'Theme', 'prefix' => 'themes'], function () {
     });
 });
 
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth']], function () {
+    Route::get('/', 'IndexController')->name('personal');
+
+    Route::group(['namespace' => 'Demand', 'prefix' => 'demands'], function () {
+        Route::get('/', 'IndexController')->name('personal.demand.index');
+        Route::get('/create', 'CreateController')->name('personal.demand.create');
+        Route::post('/store', 'StoreController')->name('personal.demand.store');
+        Route::get('/{demand}', 'ShowController')->name('personal.demand.show');
+        Route::get('/{demand}/edit', 'EditController')->name('personal.demand.edit');
+        Route::patch('/{demand}', 'UpdateController')->name('personal.demand.update');
+        Route::delete('/{demand}', 'DeleteController')->name('personal.demand.delete');
+    });
+});
+
 Auth::routes();
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
