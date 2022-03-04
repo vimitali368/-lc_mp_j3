@@ -10,7 +10,7 @@
                         <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
                             <a href="{{ route('theme.show', $theme->id) }}" class="blog-post-permalink">
                                 <div class="blog-post-thumbnail-wrapper">
-                                    <img src="{{ $theme->randomPath()['path'] }}" alt="blog post">
+                                    <img src="{{ asset($theme->randomPath()['path']) }}" alt="{{ $theme->title }}">
                                 </div>
                                 <p class="blog-post-category"></p>
                                 {{--                            <p class="blog-post-category">{{ $theme->category->title }}</p>--}}

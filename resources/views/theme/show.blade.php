@@ -7,7 +7,7 @@
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">
             </p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
-                <img src="{{ asset('storage/' . $theme->main_image) }}" alt="featured image" class="w-100">
+                <img src="{{ asset($theme->randomPath()['path']) }}" alt="featured image" class="w-100">
             </section>
             <section class="post-content">
                 <div class="row">
@@ -27,7 +27,6 @@
                                     <img src="{{ asset($photo->path) }}" alt="blog post" class="blog-post-thumbnail">
                                     <p class="blog-post-category">Blog post</p>
                                     <h4 class="blog-post-title">{{ $photo->description }}</h4>
-                                    <a href="#!" class="blog-post-link">Learn more</a>
                                 </div>
                                 @endforeach
                             </div>
