@@ -8,12 +8,12 @@
                 <div class="row">
                     @foreach($themes as $theme)
                         <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
-                            <div class="blog-post-thumbnail-wrapper">
-                                <img src="{{ $theme->randomPath()['path'] }}" alt="blog post">
-                            </div>
-                            <p class="blog-post-category"></p>
-{{--                            <p class="blog-post-category">{{ $theme->category->title }}</p>--}}
                             <a href="{{ route('theme.show', $theme->id) }}" class="blog-post-permalink">
+                                <div class="blog-post-thumbnail-wrapper">
+                                    <img src="{{ $theme->randomPath()['path'] }}" alt="blog post">
+                                </div>
+                                <p class="blog-post-category"></p>
+                                {{--                            <p class="blog-post-category">{{ $theme->category->title }}</p>--}}
                                 <h6 class="blog-post-title">{{ $theme->title }}</h6>
                             </a>
                         </div>
@@ -32,13 +32,13 @@
                         <div class="row blog-post-row">
                             @foreach($randomPhotos as $photo)
                                 <div class="col-md-6 blog-post" data-aos="fade-up">
-                                    <div class="blog-post-thumbnail-wrapper">
-                                        <img src="{{ $photo->path }}" alt="blog post">
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="blog-post-category">{{ $photo->theme->title }}</p>
-                                    </div>
                                     <a href="{{ route('theme.show', $photo->theme->id) }}" class="blog-post-permalink">
+                                        <div class="blog-post-thumbnail-wrapper">
+                                            <img src="{{ $photo->path }}" alt="blog post">
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="blog-post-category">{{ $photo->theme->title }}</p>
+                                        </div>
                                         <h6 class="blog-post-title">{{ $photo->description }}</h6>
                                     </a>
                                 </div>

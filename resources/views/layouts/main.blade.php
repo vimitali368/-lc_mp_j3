@@ -27,25 +27,6 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="{{ route('main.index') }}">Тематические фотосессии</a>
                     </li>
-{{--                    <li class="nav-item ">--}}
-{{--                        <a class="nav-link" href="{{ route('category.index') }}">Категории</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item ">--}}
-{{--                        @auth()--}}
-{{--                            <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет</a>--}}
-{{--                        @endauth--}}
-{{--                        @guest()--}}
-{{--                            <a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a>--}}
-{{--                        @endguest--}}
-{{--                    </li>--}}
-{{--                    @auth()--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <form action="{{ route('logout') }}" method="POST">--}}
-{{--                                @csrf--}}
-{{--                                <input class="btn btn-link" type="submit" value="Выйти">--}}
-{{--                            </form>--}}
-{{--                        </li>--}}
-{{--                    @endauth--}}
                 </ul>
             </div>
         </nav>
