@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController')->name('main.index');
+    Route::get('/demand', 'DemandController')->name('main.demand');
 });
 
 Route::group(['namespace' => 'Theme', 'prefix' => 'themes'], function () {
