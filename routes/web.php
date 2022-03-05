@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Main\DemandCaptchaController;
 use Illuminate\Support\Facades\Route;
+
+//use App\Http\Controllers\CaptchaValidationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,5 +79,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::patch('/{photo}', 'UpdateController')->name('admin.photo.update');
         Route::delete('/{photo}', 'DeleteController')->name('admin.photo.delete');
     });
-
 });
+
+Route::post('/demand-captcha-validation', 'Personal\Demand\StoreCaptchaController')->name('dcv');
+Route::get('/demand-reload-captcha', [DemandCaptchaController::class, 'reloadCaptcha']);

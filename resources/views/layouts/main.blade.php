@@ -9,8 +9,19 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/aos/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     <script src="{{ asset('assets/vendors/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/loader.js') }}"></script>
+    <style>
+        .container {
+            max-width: 800px;
+        }
+
+        .reload {
+            font-family: Lucida Sans Unicode
+        }
+    </style>
 </head>
 <body>
 <div class="edica-loader"></div>
@@ -68,6 +79,15 @@
 <script>
     AOS.init({
         duration: 1000
+    });
+    $('#reload').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'demand-reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
     });
 </script>
 </body>

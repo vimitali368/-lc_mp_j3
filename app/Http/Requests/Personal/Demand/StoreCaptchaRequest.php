@@ -3,9 +3,8 @@
 namespace App\Http\Requests\Personal\Demand;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class StoreRequest extends FormRequest
+class StoreCaptchaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,20 +24,12 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'fio' => [
-                'required',
-                'string',
-//                Rule::unique('demands', 'fio')
-//                    ->where(function ($query) use ($request->phone_number) {
-//                        return $query->where('phone_number', $lastName);
-//                    }),
-            ],
-//            'fio' => 'required|string',
+            'fio' => 'required|string',
             'phone_number' => 'required|string',
             'location' => 'required|string',
             'email' => 'required|string|email',
             'suitable_time' => 'required',
-            'captcha' => ['required', 'captcha'],
+            'captcha' => 'required|captcha',
         ];
     }
 }
