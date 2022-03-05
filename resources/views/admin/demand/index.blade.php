@@ -23,6 +23,12 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
+                <div class="col-2 mb-3">
+                    <a href="{{ route('admin.demand.create') }}" type="button"
+                       class="btn btn-block btn-primary">Добавить</a>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <!-- /.card-header -->

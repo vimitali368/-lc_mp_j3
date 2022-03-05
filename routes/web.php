@@ -82,6 +82,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
 
     Route::group(['namespace' => 'Demand', 'prefix' => 'demands'], function () {
         Route::get('/', 'IndexController')->name('admin.demand.index');
+        Route::get('/create', 'CreateController')->name('admin.demand.create');
+        Route::post('/store', 'StoreController')->name('admin.demand.store');
         Route::get('/{demand}', 'ShowController')->name('admin.demand.show');
         Route::get('/{demand}/edit', 'EditController')->name('admin.demand.edit');
         Route::patch('/{demand}', 'UpdateController')->name('admin.demand.update');
