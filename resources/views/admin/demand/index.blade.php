@@ -42,6 +42,7 @@
                                     <th>Локация</th>
                                     <th>Почта</th>
                                     <th>Удобное время</th>
+                                    <th>Статус</th>
                                     <th colspan="3" class="text-center">Действия</th>
                                 </tr>
                                 </thead>
@@ -54,6 +55,7 @@
                                         <td>{{ $demand->location }}</td>
                                         <td>{{ $demand->email }}</td>
                                         <td>{{ $demand->suitable_time }}</td>
+                                        <td>{{ $demand->status }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.demand.show', $demand->id) }}"><i
                                                     class="far fa-eye"></i></a></td>

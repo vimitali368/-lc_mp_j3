@@ -59,8 +59,24 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="datetime-local" class="form-control" name="suitable_time" placeholder="Удобное время">
+                        <input type="datetime-local" class="form-control" name="suitable_time"
+                               placeholder="Удобное время">
                         @error('suitable_time')
+                        <div class="text-danger">
+                            Это поле необходимо для заполнения
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Выбирите статус</label>
+                        <select name="status" class="form-control">
+                            @foreach($statuses as $id => $status)
+                                <option value="{{ $id }}"
+                                    {{ $id == old('status') ? ' selected' : '' }}
+                                >{{ $status }}</option>
+                            @endforeach
+                        </select>
+                        @error('status')
                         <div class="text-danger">
                             Это поле необходимо для заполнения
                         </div>

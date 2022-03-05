@@ -13,4 +13,15 @@ class Demand extends Model
 
     protected $table = 'demands';
     protected $guarded = false;
+
+    const STATUS_IN_PROGRESS = 1;
+    const STATUS_DONE = 2;
+
+    public static function getStatuses() {
+        return [
+            self::STATUS_IN_PROGRESS => 'В процессе',
+            self::STATUS_DONE => 'Завершенно'
+        ];
+    }
+
 }

@@ -30,6 +30,7 @@ class StoreRequest extends FormRequest
             'location' => 'required|string',
             'email' => 'required|string|email',
             'suitable_time' => 'required',
+            'status' => 'required|numeric',
         ];
     }
 }

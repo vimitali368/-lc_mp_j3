@@ -9,6 +9,7 @@ class EditController extends Controller
 {
     public function __invoke(Demand $demand)
     {
-        return view('admin.demand.edit', compact('demand'));
+        $statuses = Demand::getStatuses();
+        return view('admin.demand.edit', compact('demand', 'statuses'));
     }
 }

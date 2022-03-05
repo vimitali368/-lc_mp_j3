@@ -42,7 +42,7 @@
                     </div>
 {{--                    @dd($theme->client_id)--}}
                     <div class="form-group">
-                        <label>Выберите клиентв</label>
+                        <label>Выберите клиента</label>
                         <select class="form-control" name="client_id">
                             @foreach($clients as $client)
                                 <option value="{{ $client->id }}"

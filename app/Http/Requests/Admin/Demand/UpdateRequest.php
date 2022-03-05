@@ -28,7 +28,8 @@ class UpdateRequest extends FormRequest
             'phone_number' => 'required|string',
             'location' => 'required|string',
             'email' => 'required|string|email',
-            'suitable_time' => 'required'
+            'suitable_time' => 'required',
+            'status' => 'required|numeric'
 //        |date_format:Y-m-d H:i:s'
         ];
     }

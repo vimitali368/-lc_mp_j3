@@ -65,6 +65,10 @@
                                     <td>Удобное время</td>
                                     <td>{{ $demand->suitable_time }}</td>
                                 </tr>
+                                <tr>
+                                    <td>Статус</td>
+                                    <td>{{ $demand->status }}</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>

@@ -74,6 +74,19 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label>Выберите статус</label>
+                        <select class="form-control" name="status">
+                            @foreach($statuses as $id => $status)
+                                <option value="{{ $id }}"
+                                    {{ $id == $demand->status ? ' selected' : '' }}
+                                >{{ $status }}</option>
+                            @endforeach
+                        </select>
+                        @error('status')
+                        <div class=" text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Обновить">
                     </div>
                 </form>
