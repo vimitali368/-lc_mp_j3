@@ -18,6 +18,7 @@ class StoreController extends Controller
                 Rule::unique('demands')
                     ->where('fio', $request->input('fio'))
                     ->where('phone_number', $request->input('phone_number'))
+                    ->where('status', 1)
             ],
         ]);
         $data = $request->validated();
