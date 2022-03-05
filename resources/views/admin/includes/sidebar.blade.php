@@ -50,6 +50,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.demand.index') }}" class="nav-link">
+                        <i class="nav-icon fab fa-wpforms"></i>
+                        <p>
+                            Заявки
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

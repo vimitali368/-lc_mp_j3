@@ -79,7 +79,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::patch('/{photo}', 'UpdateController')->name('admin.photo.update');
         Route::delete('/{photo}', 'DeleteController')->name('admin.photo.delete');
     });
+
+    Route::group(['namespace' => 'Demand', 'prefix' => 'demands'], function () {
+        Route::get('/', 'IndexController')->name('admin.demand.index');
+        Route::get('/{demand}', 'ShowController')->name('admin.demand.show');
+        Route::get('/{demand}/edit', 'EditController')->name('admin.demand.edit');
+        Route::patch('/{demand}', 'UpdateController')->name('admin.demand.update');
+        Route::delete('/{demand}', 'DeleteController')->name('admin.demand.delete');
+    });
 });
 
-Route::post('/demand-captcha-validation', 'Personal\Demand\StoreCaptchaController')->name('dcv');
+Route::post('/demand-captcha-validation', 'Admin\Demand\StoreCaptchaController')->name('dcv');
 Route::get('/demand-reload-captcha', [DemandCaptchaController::class, 'reloadCaptcha']);
