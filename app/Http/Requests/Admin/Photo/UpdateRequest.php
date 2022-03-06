@@ -31,4 +31,20 @@ class UpdateRequest extends FormRequest
             'theme_id' => 'required|numeric|exists:themes,id'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'path.required' => 'Это поле необходимо для заполнения',
+            'path.string' => 'Данные должны соответствовать строчному типу',
+            'url.required' => 'Это поле необходимо для заполнения',
+            'url.string' => 'Данные должны соответствовать строчному типу',
+            'size.required' => 'Это поле необходимо для заполнения',
+            'size.numeric' => 'Данные должны соответствовать числовому типу',
+            'description.string' => 'Данные должны соответствовать строчному типу',
+            'theme_id.required' => 'Это поле необходимо для заполнения',
+            'theme_id.numeric' => 'Данные должны соответствовать числовому типу',
+            'theme_id.exists' => 'Данный пункт необходимо предварительно создать',
+        ];
+    }
 }

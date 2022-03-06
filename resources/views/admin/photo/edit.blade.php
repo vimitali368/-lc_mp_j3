@@ -30,27 +30,21 @@
                         <input type="text" class="form-control" name="path" placeholder="Путь к фото"
                                value="{{ $photo->path }}">
                         @error('path')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class="text-danger"> {{ $message }} </div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="url" placeholder="Url фото"
                                value="{{ $photo->url }}">
                         @error('url')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class="text-danger"> {{ $message }} </div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="size" placeholder="Размер фото"
                                value="{{ $photo->size }}">
                         @error('size')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class="text-danger"> {{ $message }} </div>
                         @enderror
                     </div>
                     <div class="form-group">

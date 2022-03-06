@@ -29,29 +29,26 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="path" placeholder="Путь к фото">
                         @error('path')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class="text-danger"> {{ $message }} </div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="url" placeholder="Url фото">
                         @error('url')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class="text-danger"> {{ $message }} </div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="size" placeholder="Размер фото">
                         @error('size')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class="text-danger"> {{ $message }} </div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="description" placeholder="Описание фото">
+                        @error('description')
+                        <div class="text-danger"> {{ $message }} </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Выбирите тему</label>
@@ -63,9 +60,7 @@
                             @endforeach
                         </select>
                         @error('theme_id')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class="text-danger"> {{ $message }} </div>
                         @enderror
                     </div>
                     <div class="form-group">
