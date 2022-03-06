@@ -19,12 +19,18 @@
                                             <label for="fio">Фамилия Имя Отчество</label>
                                             <input type="text" class="form-control" id="fio" name="fio"
                                                    placeholder="Ваши полные Фамилия Имя Отчество">
+                                            @error('fio')
+                                            <div class=" text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-6" data-aos="fade-up">
                                             <label for="phone_number">Телефон</label>
                                             <input type="text" class="form-control" id="phone_number"
                                                    name="phone_number"
                                                    placeholder="Ваш мобильный номер телефона">
+                                            @error('phone_number')
+                                            <div class=" text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row">
@@ -32,11 +38,17 @@
                                             <label for="email">Почта E-mail</label>
                                             <input type="email" class="form-control" id="email" name="email"
                                                    placeholder="Ваша электронная почта">
+                                            @error('email')
+                                            <div class=" text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-6" data-aos="fade-up" data-aos-delay="100">
                                             <label for="location">Локация</label>
                                             <input type="text" class="form-control" id="location" name="location"
                                                    placeholder="Где будет проходить фотосессия">
+                                            @error('location')
+                                            <div class=" text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row">
@@ -45,6 +57,9 @@
                                             <input type="datetime-local" class="form-control" id="suitable_time"
                                                    name="suitable_time"
                                                    placeholder="Когда будет проходить мероприятие?">
+                                            @error('suitable_time')
+                                            <div class=" text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row">
@@ -60,6 +75,9 @@
                                             <label>Защита от спама</label>
                                             <input id="captcha" type="text" class="form-control"
                                                    placeholder="Введите ответ" name="captcha">
+                                            @error('captcha')
+                                            <div class=" text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-warning btn-lg" data-aos="fade-up"

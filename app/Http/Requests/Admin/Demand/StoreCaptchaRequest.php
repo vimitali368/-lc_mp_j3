@@ -32,4 +32,22 @@ class StoreCaptchaRequest extends FormRequest
             'captcha' => 'required|captcha',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'fio.required' => 'Это поле необходимо для заполнения',
+            'fio.string' => 'Данные должны соответствовать строчному типу',
+            'phone_number.required' => 'Это поле необходимо для заполнения',
+            'phone_number.string' => 'Данные должны соответствовать строчному типу',
+            'location.required' => 'Это поле необходимо для заполнения',
+            'location.string' => 'Данные должны соответствовать строчному типу',
+            'email.required' => 'Это поле необходимо для заполнения',
+            'email.string' => 'Данные должны соответствовать строчному типу',
+            'email.email' => 'Ваша почта должна соответствовать формату mail@some.domain',
+            'suitable_time.required' => 'Это поле необходимо для заполнения',
+            'captcha.required' => 'Это поле необходимо для заполнения',
+            'captcha.captcha' => 'Заполните результат, который видите на картинке',
+        ];
+    }
 }
