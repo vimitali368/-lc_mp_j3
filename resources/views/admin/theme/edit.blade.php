@@ -31,16 +31,17 @@
                         <input type="text" class="form-control" name="title" placeholder="Заголовок"
                                value="{{ $theme->title }}">
                         @error('title')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="description" placeholder="Описание"
                                value="{{ $theme->description }}">
+                        @error('description')
+                        <div class=" text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
-{{--                    @dd($theme->client_id)--}}
+                    {{--                    @dd($theme->client_id)--}}
                     <div class="form-group">
                         <label>Выберите клиента</label>
                         <select class="form-control" name="client_id">

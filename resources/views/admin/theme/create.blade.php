@@ -29,13 +29,14 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="title" placeholder="Заголовок">
                         @error('title')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="description" placeholder="Описание">
+                        @error('description')
+                        <div class=" text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Выбирите клиента</label>
@@ -47,9 +48,7 @@
                             @endforeach
                         </select>
                         @error('client_id')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">

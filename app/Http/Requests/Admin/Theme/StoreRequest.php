@@ -29,4 +29,16 @@ class StoreRequest extends FormRequest
             'client_id' => 'required|numeric|exists:clients,id'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Это поле необходимо для заполнения',
+            'title.string' => 'Данные должны соответствовать строчному типу',
+            'description.string' => 'Данные должны соответствовать строчному типу',
+            'client_id.required' => 'Это поле необходимо для заполнения',
+            'client_id.numeric' => 'Данные должны соответствовать числовому типу',
+            'client_id.exists' => 'Данный пункт необходимо предварительно создать',
+        ];
+    }
 }
