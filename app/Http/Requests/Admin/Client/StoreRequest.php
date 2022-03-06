@@ -27,7 +27,19 @@ class StoreRequest extends FormRequest
             'fio' => 'required|string',
             'phone_number' => 'nullable|string',
             'location' => 'nullable|string',
-            'email' => 'nullable|string'
+            'email' => 'nullable|string|email'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'fio.required' => 'Это поле необходимо для заполнения',
+            'fio.string' => 'Дааные должны соответствовать строчному типу',
+            'phone_number.string' => 'Дааные должны соответствовать строчному типу',
+            'location.string' => 'Дааные должны соответствовать строчному типу',
+            'email.string' => 'Дааные должны соответствовать строчному типу',
+            'email.email' => 'Ваша почта должна соответствовать формату mail@some.domain',
         ];
     }
 }

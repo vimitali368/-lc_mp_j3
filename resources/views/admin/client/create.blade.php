@@ -29,19 +29,26 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="fio" placeholder="Фамилия Имя Отчество">
                         @error('fio')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class="text-danger"> {{ $message }} </div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="phone_number" placeholder="Номер телефона">
+                        @error('phone_number')
+                        <div class="text-danger"> {{ $message }} </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="location" placeholder="Локация">
+                        @error('location')
+                        <div class="text-danger"> {{ $message }} </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-control" name="email" placeholder="Почта">
+                        @error('email')
+                        <div class="text-danger"> {{ $message }} </div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Добавить">
