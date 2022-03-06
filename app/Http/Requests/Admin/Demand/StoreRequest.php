@@ -33,4 +33,22 @@ class StoreRequest extends FormRequest
             'status' => 'required|numeric',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'fio.required' => 'Это поле необходимо для заполнения',
+            'fio.string' => 'Данные должны соответствовать строчному типу',
+            'phone_number.required' => 'Это поле необходимо для заполнения',
+            'phone_number.string' => 'Данные должны соответствовать строчному типу',
+            'location.required' => 'Это поле необходимо для заполнения',
+            'location.string' => 'Данные должны соответствовать строчному типу',
+            'email.required' => 'Это поле необходимо для заполнения',
+            'email.string' => 'Данные должны соответствовать строчному типу',
+            'email.email' => 'Ваша почта должна соответствовать формату mail@some.domain',
+            'suitable_time.required' => 'Это поле необходимо для заполнения',
+            'status.required' => 'Это поле необходимо для заполнения',
+            'status.numeric' => 'Данные должны соответствовать числовому типу',
+        ];
+    }
 }
