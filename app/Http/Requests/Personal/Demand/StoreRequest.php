@@ -25,20 +25,30 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'fio' => [
-                'required',
-                'string',
-//                Rule::unique('demands', 'fio')
-//                    ->where(function ($query) use ($request->phone_number) {
-//                        return $query->where('phone_number', $lastName);
-//                    }),
-            ],
-//            'fio' => 'required|string',
+            'fio' => 'required|string',
             'phone_number' => 'required|string',
             'location' => 'required|string',
             'email' => 'required|string|email',
             'suitable_time' => 'required',
             'captcha' => ['required', 'captcha'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'fio.required' => 'Это поле необходимо для заполнения',
+            'fio.string' => 'Данные должны соответствовать строчному типу',
+            'phone_number.required' => 'Это поле необходимо для заполнения',
+            'phone_number.string' => 'Данные должны соответствовать строчному типу',
+            'location.required' => 'Это поле необходимо для заполнения',
+            'location.string' => 'Данные должны соответствовать строчному типу',
+            'email.required' => 'Это поле необходимо для заполнения',
+            'email.string' => 'Данные должны соответствовать строчному типу',
+            'email.email' => 'Ваша почта должна соответствовать формату mail@some.domain',
+            'suitable_time.required' => 'Это поле необходимо для заполнения',
+            'captcha.required' => 'Это поле необходимо для заполнения',
+            'captcha.captcha' => 'Заполните результат, который видите на картинке',
         ];
     }
 }

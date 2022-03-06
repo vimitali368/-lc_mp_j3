@@ -31,36 +31,28 @@
                         <input type="text" class="form-control" name="fio" placeholder="Фамилия Имя Отчество"
                                value="{{ $demand->fio }}">
                         @error('fio')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="phone_number" placeholder="Номер телефона"
                                value="{{ $demand->phone_number }}">
                         @error('phone_number')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="location" placeholder="Локация"
                                value="{{ $demand->location }}">
                         @error('location')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="email" placeholder="Почта"
                                value="{{ $demand->email }}">
                         @error('email')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
 {{--                    @dd($demand->suitable_time)--}}
@@ -68,9 +60,7 @@
                         <input type="datetime-local" class="form-control" name="suitable_time" placeholder="Удобное время"
                                value="{{ str_replace(' ', 'T', $demand->suitable_time) }}">
                         @error('suitable_time')
-                        <div class="text-danger">
-                            Это поле необходимо для заполнения
-                        </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
