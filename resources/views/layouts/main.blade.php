@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <titleСайт портфолио Алексеева К. П.</title>
+    <title> Сайт портфолио Алексеева К. П.</title>
     <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/aos/aos.css') }}">
@@ -38,12 +38,22 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="{{ route('theme.index') }}">Тематические фотосессии</a>
                     </li>
-{{--                    <li class="nav-item ">--}}
-{{--                        <a class="nav-link" href="{{ route('photos.index') }}">Фотографии</a>--}}
-{{--                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.demand') }}">Оставить заявку</a>
                     </li>
+                    @guest()
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Войти</a>
+                        </li>
+                    @endguest
+                    @auth()
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <input class="btn nav-link" type="submit" value="Выйти">
+                            </form>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </nav>

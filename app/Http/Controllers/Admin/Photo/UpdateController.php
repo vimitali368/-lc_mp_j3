@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Photo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Photo\UpdateRequest;
 use App\Models\Photo;
+use Illuminate\Support\Facades\Storage;
 
 class UpdateController extends Controller
 {
@@ -13,6 +14,10 @@ class UpdateController extends Controller
 //        dd($request);
         $data = $request->validated();
 //        dd($data);
+        if (isset($data['path'])) {
+            $data['url'] = Storage::disk('public')->put('/images', $data['path']);
+            $data['size'] = $data['path']->getSize();
+        }
         $photo->update($data);
         return redirect()->route('admin.photo.show', compact('photo'));
     }

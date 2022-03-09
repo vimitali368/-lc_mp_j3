@@ -23,27 +23,36 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="row ml-3">
-                <form action="{{ route('admin.photo.store') }}" method="POST" class="w-25">
+            <div class="container-fluid">
+                <form action="{{ route('admin.photo.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="path" placeholder="Путь к фото">
+                    <div class="form-group w-50">
+                        <label>Путь к фото</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="path">
+                                <label class="custom-file-label">Выберите изображение</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузить</span>
+                            </div>
+                        </div>
                         @error('path')
-                        <div class="text-danger"> {{ $message }} </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="url" placeholder="Url фото">
-                        @error('url')
-                        <div class="text-danger"> {{ $message }} </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="size" placeholder="Размер фото">
-                        @error('size')
-                        <div class="text-danger"> {{ $message }} </div>
-                        @enderror
-                    </div>
+                    {{--                    <div class="form-group">--}}
+                    {{--                        <input type="text" class="form-control" name="url" placeholder="Url фото">--}}
+                    {{--                        @error('url')--}}
+                    {{--                        <div class="text-danger"> {{ $message }} </div>--}}
+                    {{--                        @enderror--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="form-group">--}}
+                    {{--                        <input type="text" class="form-control" name="size" placeholder="Размер фото">--}}
+                    {{--                        @error('size')--}}
+                    {{--                        <div class="text-danger"> {{ $message }} </div>--}}
+                    {{--                        @enderror--}}
+                    {{--                    </div>--}}
                     <div class="form-group">
                         <input type="text" class="form-control" name="description" placeholder="Описание фото">
                         @error('description')

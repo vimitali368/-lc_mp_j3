@@ -22,31 +22,46 @@
         <!-- /.content-header -->
         <!-- Main content -->
         <section class="content">
-            <div class="row ml-3">
-                <form action="{{ route('admin.photo.update', $photo->id ) }}" method="POST" class="w-25">
+            <div class="container-fluid">
+                <form action="{{ route('admin.photo.update', $photo->id ) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="path" placeholder="Путь к фото"
-                               value="{{ $photo->path }}">
+                    <div class="form-group w-50">
+                        <label>Путь к фото</label>
+                        @if(isset($photo->url))
+                            <div class="w-25">
+                                <img src="{{ url('storage/' . $photo->url) }}" alt="url"
+                                     class="w-50">
+                            </div>
+                        @endif
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="path" placeholder="Путь к фото"
+                                       value="{{ $photo->path }}">>
+                                <label class="custom-file-label">Выберите изображение</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Загрузить</span>
+                            </div>
+                        </div>
                         @error('path')
-                        <div class="text-danger"> {{ $message }} </div>
+                        <div class=" text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="url" placeholder="Url фото"
-                               value="{{ $photo->url }}">
-                        @error('url')
-                        <div class="text-danger"> {{ $message }} </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="size" placeholder="Размер фото"
-                               value="{{ $photo->size }}">
-                        @error('size')
-                        <div class="text-danger"> {{ $message }} </div>
-                        @enderror
-                    </div>
+                    {{--                    <div class="form-group">--}}
+                    {{--                        <input type="text" class="form-control" name="url" placeholder="Url фото"--}}
+                    {{--                               value="{{ $photo->url }}">--}}
+                    {{--                        @error('url')--}}
+                    {{--                        <div class="text-danger"> {{ $message }} </div>--}}
+                    {{--                        @enderror--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="form-group">--}}
+                    {{--                        <input type="text" class="form-control" name="size" placeholder="Размер фото"--}}
+                    {{--                               value="{{ $photo->size }}">--}}
+                    {{--                        @error('size')--}}
+                    {{--                        <div class="text-danger"> {{ $message }} </div>--}}
+                    {{--                        @enderror--}}
+                    {{--                    </div>--}}
                     <div class="form-group">
                         <input type="text" class="form-control" name="description" placeholder="Описание фото"
                                value="{{ $photo->description }}">

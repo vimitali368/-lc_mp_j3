@@ -24,9 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'path' => 'required|string',
-            'url' => 'required|string',
-            'size' => 'required|numeric',
+            'path' => 'required|file',
+            'url' => 'nullable|string',
+            'size' => 'nullable|numeric',
             'description' => 'nullable|string',
             'theme_id' => 'required|numeric|exists:themes,id'
         ];
@@ -36,7 +36,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'path.required' => 'Это поле необходимо для заполнения',
-            'path.string' => 'Данные должны соответствовать строчному типу',
+            'path.file' => 'Данные должны соответствовать файловому типу',
             'url.required' => 'Это поле необходимо для заполнения',
             'url.string' => 'Данные должны соответствовать строчному типу',
             'size.required' => 'Это поле необходимо для заполнения',

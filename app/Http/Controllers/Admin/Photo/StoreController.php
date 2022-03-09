@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Photo;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Photo\StoreRequest;
 use App\Models\Photo;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
@@ -12,7 +13,11 @@ class StoreController extends Controller
     {
 //        dd($request);
         $data = $request->validated();
-//        dd($data);
+//        dd($data['path']);
+        if (isset($data['path'])) {
+            $data['url'] = Storage::disk('public')->put('/images', $data['path']);
+            $data['size'] = $data['path']->getSize();
+        }
         Photo::firstOrCreate($data);
         return redirect()->route('admin.photo.index');
     }
