@@ -48,6 +48,10 @@
                     @endguest
                     @auth()
                         <li class="nav-item">
+                            <a class="nav-link" href="/admin">Админка</a>
+                        </li>
+
+                        <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <input class="btn nav-link" type="submit" value="Выйти">
