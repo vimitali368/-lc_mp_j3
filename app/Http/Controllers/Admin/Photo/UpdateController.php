@@ -15,8 +15,9 @@ class UpdateController extends Controller
         $data = $request->validated();
 //        dd($data);
         if (isset($data['path'])) {
-            $data['url'] = Storage::disk('public')->put('/images', $data['path']);
             $data['size'] = $data['path']->getSize();
+            $data['path'] = Storage::disk('public')->put('images', $data['path']);
+            $data['url'] = url('/storage/' . $data['path']);
         }
         $photo->update($data);
         return redirect()->route('admin.photo.show', compact('photo'));

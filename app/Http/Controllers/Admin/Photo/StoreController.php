@@ -15,8 +15,9 @@ class StoreController extends Controller
         $data = $request->validated();
 //        dd($data['path']);
         if (isset($data['path'])) {
-            $data['url'] = Storage::disk('public')->put('/images', $data['path']);
             $data['size'] = $data['path']->getSize();
+            $data['path'] = Storage::disk('public')->put('images', $data['path']);
+            $data['url'] = url('/storage/' . $data['path']);
         }
         Photo::firstOrCreate($data);
         return redirect()->route('admin.photo.index');
