@@ -7,16 +7,21 @@
             <section class="featured-posts-section">
                 <div class="row">
                     @foreach($themes as $theme)
-                        <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
-                            <a href="{{ route('theme.show', $theme->id) }}" class="blog-post-permalink">
-                                <div class="blog-post-thumbnail-wrapper">
-                                    <img src="{{ asset('storage/' . $theme->randomPath()['path']) }}" alt="{{ $theme->title }}">
-                                </div>
-                                <p class="blog-post-category"></p>
-                                {{--                            <p class="blog-post-category">{{ $theme->category->title }}</p>--}}
-                                <h6 class="blog-post-title">{{ $theme->title }}</h6>
-                            </a>
-                        </div>
+                        @if(isset($theme))
+                            <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
+                                <a href="{{ route('theme.show', $theme->id) }}" class="blog-post-permalink">
+                                    @if(isset($theme->randomPath()['path']) && $theme->randomPath()['path']!=''))
+                                        <div class="blog-post-thumbnail-wrapper">
+                                            <img src="{{ asset('storage/' . $theme->randomPath()['path']) }}"
+                                                 alt="{{ $theme->title }}">
+                                        </div>
+                                    @endif
+                                    <p class="blog-post-category"></p>
+                                    {{--                            <p class="blog-post-category">{{ $theme->category->title }}</p>--}}
+                                    <h6 class="blog-post-title">{{ $theme->title }}</h6>
+                                </a>
+                            </div>
+                        @endif
                     @endforeach
                 </div>
                 <div class="row">
@@ -25,7 +30,7 @@
                     </div>
                 </div>
             </section>
-{{--            @dd($randomPhotos)--}}
+            {{--            @dd($randomPhotos)--}}
             @if (isset($randomPhotos))
                 <div class="row">
                     <div class="col-md-8">
