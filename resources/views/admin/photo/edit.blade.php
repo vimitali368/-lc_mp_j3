@@ -28,9 +28,9 @@
                     @method('PATCH')
                     <div class="form-group w-50">
                         <label>Путь к фото</label>
-                        @if(isset( $photo->url ) )
+                        @if(isset( $photo->path ) )
                             <div class="w-25">
-                                <img src="{{ $photo->url }}" alt="url"
+                                <img src="{{ asset('storage/' . $photo->path) }}" alt="url"
                                      class="w-50">
                             </div>
                         @endif

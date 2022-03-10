@@ -16,7 +16,8 @@ class StoreController extends Controller
 //        dd($data['path']);
         if (isset($data['path'])) {
             $data['size'] = $data['path']->getSize();
-            $data['path'] = Storage::disk('public')->put('images', $data['path']);
+            $data['path'] = Storage::disk('public')->put('/images', $data['path']);
+//            dd(Storage::url($data['path']));
             $data['url'] = url('/storage/' . $data['path']);
         }
         Photo::firstOrCreate($data);

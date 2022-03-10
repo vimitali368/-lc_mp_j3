@@ -37,23 +37,18 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th colspan="3" class="text-center">Действия</th>
                                     <th>Путь к фото</th>
                                     <th>Url фото</th>
                                     <th>Размер фото</th>
                                     <th>Описание фото</th>
                                     <th>ID темы</th>
-                                    <th colspan="3" class="text-center">Действия</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($photos as $photo)
                                     <tr>
                                         <td>{{ $photo->id }}</td>
-                                        <td>{{ $photo->path }}</td>
-                                        <td>{{ $photo->url }}</td>
-                                        <td>{{ $photo->size }}</td>
-                                        <td>{{ $photo->description }}</td>
-                                        <td>{{ $photo->theme_id }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.photo.show', $photo->id) }}"><i
                                                     class="far fa-eye"></i></a></td>
@@ -70,6 +65,11 @@
                                                 </button>
                                             </form>
                                         </td>
+                                        <td>{{ $photo->path }}</td>
+                                        <td>{{ $photo->url }}</td>
+                                        <td>{{ $photo->size }}</td>
+                                        <td>{{ $photo->description }}</td>
+                                        <td>{{ $photo->theme_id }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

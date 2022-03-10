@@ -7,7 +7,7 @@
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">
             </p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
-                <img src="{{ asset($theme->randomPath()['path']) }}" alt="featured image" class="w-100">
+                <img src="{{ asset('storage/' . $theme->randomPath()['path']) }}" alt="featured image" class="w-100">
             </section>
             <section class="post-content">
                 <div class="row">
@@ -24,7 +24,7 @@
                             <div class="row">
                                 @foreach($photos as $photo)
                                 <div class="col-md-4 landing-blog-post aos-init aos-animate" data-aos="fade-right">
-                                    <img src="{{ asset($photo->path) }}" alt="blog post" class="blog-post-thumbnail">
+                                    <img src="{{ $photo->url }}" alt="blog post" class="blog-post-thumbnail">
                                     <p class="blog-post-category">Ссылка: {{ $photo->url }}</p>
                                     <p class="blog-post-category">Размер: {{ $photo->size }}</p>
                                     <h4 class="blog-post-title">{{ $photo->description }}</h4>
