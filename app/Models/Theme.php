@@ -24,7 +24,7 @@ class Theme extends Model
     public function randomPath()
     {
 //        dd($this->photos()->inRandomOrder()->first()->only('path'));
-        return $this->photos()->inRandomOrder()->first()->only('path');
+        return $this->photos()->inRandomOrder()->limit(1)->only('path');
     }
 
 }
