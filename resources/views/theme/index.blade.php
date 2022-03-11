@@ -4,34 +4,33 @@
     <main class="blog">
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">Сайт портфолио</h1>
-            <section class="featured-posts-section">
-                <div class="row">
-                    @foreach($themes as $theme)
-                        @if(isset($theme))
+            @if($themes->count() > 0)
+                <section class="featured-posts-section">
+                    <div class="row">
+                        @foreach($themes as $theme)
                             <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
                                 <a href="{{ route('theme.show', $theme->id) }}" class="blog-post-permalink">
-                                    @if(isset($theme->randomPath()['path']) && $theme->randomPath()['path']!=''))
-                                        <div class="blog-post-thumbnail-wrapper">
-                                            <img src="{{ asset('storage/' . $theme->randomPath()['path']) }}"
-                                                 alt="{{ $theme->title }}">
-                                        </div>
+                                    @if( $theme->randomPath() != '' )
+                                    <div class="blog-post-thumbnail-wrapper">
+                                        <img src="{{ asset('storage/' . $theme->randomPath()) }}"
+                                             alt="{{ $theme->title }}">
+                                    </div>
                                     @endif
                                     <p class="blog-post-category"></p>
                                     {{--                            <p class="blog-post-category">{{ $theme->category->title }}</p>--}}
                                     <h6 class="blog-post-title">{{ $theme->title }}</h6>
                                 </a>
                             </div>
-                        @endif
-                    @endforeach
-                </div>
-                <div class="row">
-                    <div class="mx-auto" style="margin-top: -100px;">
-                        {{ $themes->links() }}
+                        @endforeach
                     </div>
-                </div>
-            </section>
-            {{--            @dd($randomPhotos)--}}
-            @if (isset($randomPhotos))
+                    <div class="row">
+                        <div class="mx-auto" style="margin-top: -100px;">
+                            {{ $themes->links() }}
+                        </div>
+                    </div>
+                </section>
+            @endif
+            @if($randomPhotos->count() > 0)
                 <div class="row">
                     <div class="col-md-8">
                         <h5 class="widget-title">Случайные фото</h5>

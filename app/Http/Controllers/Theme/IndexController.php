@@ -12,7 +12,7 @@ class IndexController extends Controller
     {
         $themes = Theme::paginate(6);
         $randomPhotos = Photo::inRandomOrder()->limit(8)->get();
-//        $randomPhotos = Photo::get()->random(8);
+
         return view('theme.index', compact('themes', 'randomPhotos'));
     }
 
